@@ -1,14 +1,29 @@
 import React, { Component } from 'react'
-
+import { FaPencilAlt, FaTrashAlt} from 'react-icons/fa' 
 
 class Note extends Component {
-  render () {
+  
+  constructor(props) {
+    super(props)
+    this.edit = this.edit.bind(this)
+    this.remove = this.remove.bind(this)
+  }
+
+  edit() {
+    alert('editing note')
+  }
+
+  remove() {
+    alert('removing note')
+  }
+
+  render() {
     return (
       <div className="note">
         <p>Learn React</p>
         <span>
-          <button>Edit</button>
-          <button>Remove</button>
+          <button onClick={this.edit} id="eidt"><FaPencilAlt /></button>
+          <button onClick={this.remove} id="remove"><FaTrashAlt /></button>
         </span>
       </div>
     )
