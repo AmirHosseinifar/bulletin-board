@@ -25,16 +25,20 @@ class Note extends Component {
     alert('removing note')
   }
 
-  save() {
-    alert(this.newText.value)
+  save(e) {
+    e.preventDefault()
+    this.props.onChange(this._newText.value, this.props.index)
+    this.setState({
+      editing: false
+    })
   }
 
   renderForm() {
     return (
       <div className="note">
-        <form>
-          <textarea ref={input => this.newText = input}/>
-          <button onClick={this.save}><FaSave /></button>
+        <form onSubmit={this.save}>
+          <textarea ref={input => this._newText = input}/>
+          <button><FaSave /></button>
         </form>
       </div>
     )
@@ -53,7 +57,8 @@ class Note extends Component {
   }
 
   render () {
-    return this.state.editing ? this.renderForm() : this.renderDisplay()
+    return this.state.editing ? this.renderForm() : 
+    this.renderDisplay()
   }
 }
 
