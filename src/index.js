@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Board from './Board'
 
-ReactDOM.render(<Board />, document.getElementById('root'));
+ReactDOM.render(<Board count={50} />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
