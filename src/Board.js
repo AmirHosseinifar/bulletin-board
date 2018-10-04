@@ -31,7 +31,7 @@ class Board extends Component {
       notes: [
         ...prevState.notes,
         {
-          id: this.nextId, 
+          id: this.nextId(), 
           note: text
         }
       ]
@@ -40,7 +40,7 @@ class Board extends Component {
 
   nextId() {
     this.uniqueId = this.uniqueId || 0
-    return this.this.uniqueId++
+    return this.uniqueId++
   }
 
   update (newText, i) {
